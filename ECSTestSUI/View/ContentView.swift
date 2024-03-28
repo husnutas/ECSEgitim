@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var searchText = ""
     private let persistenceManager = PersistenceManager.shared
     
-    private var filteredPeople: [Person] {
-        var people: [Person] = []
+    private var filteredPeople: People {
+        var people: People = []
         people.append(contentsOf: viewModel.people.filter { $0.name.lowercased() == searchText.lowercased() || searchText.isEmpty })
         return people
     }
@@ -34,14 +34,18 @@ struct ContentView: View {
                     }
                     
                     Section("Kisiler") {
-                        ForEach(filteredPeople) { person in
-                            Text("\(person.name) \(person.lastName)")
+                        if viewModel.people.isEmpty {
+                            ProgressView()
+                        } else {
+                            ForEach(filteredPeople) { person in
+                                Text(person.name)
+                            }
                         }
                     }
                 }
                 .searchable(text: $searchText)
-                .onAppear {
-                    viewModel.fetchData()
+                .task {
+                    await viewModel.fetchData()
                 }
 //            }
             .navigationTitle("Ana Sayfa")

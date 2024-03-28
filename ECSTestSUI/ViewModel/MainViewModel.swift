@@ -9,16 +9,25 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
-    @Published var people: [Person] = []
+    @Published var people: People = []
+    @Published var person: Person?
     
-    func fetchData() {
-        people = [
-            Person(name: "Ali", lastName: "Ayaz", age: 20),
-            Person(name: "Ahmet", lastName: "ASD", age: 12),
-            Person(name: "dsad", lastName: "ASD", age: 12),
-            Person(name: "asd", lastName: "ASD", age: 12),
-            Person(name: "fsfczx", lastName: "ASD", age: 12)
-        ]
+    let apiManager = APIManager()
+    
+    func getPeople() async {
+        do {
+            people = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getPerson(id: String) async {
+        do {
+            person = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users/\(id)")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
 }

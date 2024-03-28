@@ -11,14 +11,15 @@ struct DetailView: View {
     @StateObject private var viewModel = DetailViewModel()
     
     @State private var name = ""
-    @State private var lastName = ""
-    @State private var age = ""
+    @State private var bio = ""
+    @State private var isChecked = false
     
     var body: some View {
         Form {
             TextField("Ad", text: $name)
-            TextField("Soyad", text: $lastName)
-            TextField("Yas", text: $age)
+            TextField("Bio", text: $bio)
+            
+            Toggle("Kontrol edildi", isOn: $isChecked)
             
             Button("Kaydet", action: saveData)
         }
@@ -27,7 +28,7 @@ struct DetailView: View {
 
 extension DetailView {
     private func saveData() {
-        let person = Person(name: name, lastName: lastName, age: Int(age) ?? 0)
+        let person = Person(id: UUID().uuidString, avatarURL: "", name: name, bio: bio, isChecked: isChecked)
         print(person)
         viewModel.saveToDevice(value: name, key: .userName)
     }

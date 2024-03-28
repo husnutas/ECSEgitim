@@ -7,9 +7,17 @@
 
 import Foundation
 
-struct Person: Identifiable {
-    let id = UUID()
-    let name: String
-    let lastName: String
-    let age: Int
+// MARK: - Person
+struct Person: Codable, Identifiable {
+    let id: String
+    let avatarURL, name, bio: String
+    let isChecked: Bool
+
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case avatarURL = "avatarUrl"
+//        case name, bio, isChecked
+//    }
 }
+
+typealias People = [Person]
