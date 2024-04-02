@@ -9,10 +9,27 @@ import Foundation
 
 final class APIManager {
     
-    func fetchData<T: Codable>(urlString: String) async throws -> T {
-        guard let url = URL(string: urlString) else { throw CustomError.invalidUrl }
+    func fetchData<T: Codable, B: Codable>(urlString: String, method: HttpMethod, body: B = EmptyBody(), path: String? = nil) async throws -> T {
+        var url = URL(string: urlString)
+        
+        if let path {
+            url?.append(path: path)
+        }
+        
+        guard let url else { throw CustomError.invalidUrl }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            if !(body is EmptyBody) {
+                urlRequest.httpBody = try JSONEncoder().encode(body)
+            }
+            
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            
+//            print(String(data: data, encoding: .utf8))
             
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
@@ -31,4 +48,11 @@ enum CustomError: Error {
             "Invalid URL!"
         }
     }
+}
+
+enum HttpMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
 }

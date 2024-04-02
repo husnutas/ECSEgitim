@@ -2,38 +2,45 @@
 //  DetailView.swift
 //  ECSTestSUI
 //
-//  Created by Hüsnü Taş on 26.03.2024.
+//  Created by Hüsnü Taş on 2.04.2024.
 //
 
 import SwiftUI
 
 struct DetailView: View {
     @StateObject private var viewModel = DetailViewModel()
-    
-    @State private var name = ""
-    @State private var bio = ""
-    @State private var isChecked = false
+    let personId: String
     
     var body: some View {
-        Form {
-            TextField("Ad", text: $name)
-            TextField("Bio", text: $bio)
-            
-            Toggle("Kontrol edildi", isOn: $isChecked)
-            
-            Button("Kaydet", action: saveData)
+        VStack {
+            if let person = viewModel.person {
+                // avatar
+                AsyncImage(url: URL(string: person.avatarURL)) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } placeholder: {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
+                .frame(height: 200)
+                
+                Text(person.name)
+                
+                Text(person.bio)
+                
+                Spacer()
+            } else {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            }
+        }
+        .task {
+            await viewModel.getUser(id: personId)
         }
     }
 }
 
-extension DetailView {
-    private func saveData() {
-        let person = Person(id: UUID().uuidString, avatarURL: "", name: name, bio: bio, isChecked: isChecked)
-        print(person)
-        viewModel.saveToDevice(value: name, key: .userName)
-    }
-}
-
 #Preview {
-    DetailView()
+    DetailView(personId: "C1D8A643-F0C5-4474-B632-50FE6F3C1280")
 }

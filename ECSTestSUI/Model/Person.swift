@@ -13,11 +13,11 @@ struct Person: Codable, Identifiable {
     let avatarURL, name, bio: String
     let isChecked: Bool
 
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case avatarURL = "avatarUrl"
-//        case name, bio, isChecked
-//    }
+    enum CodingKeys: String, CodingKey {
+        case id
+        case avatarURL = "avatarUrl"
+        case name, bio, isChecked
+    }
 }
 
 typealias People = [Person]

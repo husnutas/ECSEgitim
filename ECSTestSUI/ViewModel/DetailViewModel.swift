@@ -2,17 +2,23 @@
 //  DetailViewModel.swift
 //  ECSTestSUI
 //
-//  Created by Hüsnü Taş on 26.03.2024.
+//  Created by Hüsnü Taş on 2.04.2024.
 //
 
 import Foundation
 
 final class DetailViewModel: ObservableObject {
     
-    private let persistenceManager = PersistenceManager.shared
+    private let apiManager = APIManager()
     
-    func saveToDevice(value: String, key: KeychainProperty) {
-        persistenceManager.saveToKeychain(value: value, key: key)
+    @Published var person: Person?
+    
+    func getUser(id: String) async {
+        do {
+            person = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users", method: .get, path: id)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
 }

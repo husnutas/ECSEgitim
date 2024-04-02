@@ -25,11 +25,12 @@ struct ContentView: View {
                     Section {
                         Text("Merhaba \(persistenceManager.userName)")
                     }
-                    Section("Detay") {
+                    
+                    Section("Yeni Kullanici") {
                         NavigationLink {
-                            DetailView()
+                            AddPersonView()
                         } label: {
-                            Text("Tikla")
+                            Text("Ekle")
                         }
                     }
                     
@@ -38,14 +39,18 @@ struct ContentView: View {
                             ProgressView()
                         } else {
                             ForEach(filteredPeople) { person in
-                                Text(person.name)
+                                NavigationLink {
+                                    DetailView(personId: person.id)
+                                } label: {
+                                    Text(person.name)
+                                }
                             }
                         }
                     }
                 }
                 .searchable(text: $searchText)
                 .task {
-                    await viewModel.fetchData()
+                    await viewModel.getPeople()
                 }
 //            }
             .navigationTitle("Ana Sayfa")

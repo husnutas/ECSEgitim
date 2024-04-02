@@ -7,16 +7,17 @@
 
 import Foundation
 
+@MainActor
 class MainViewModel: ObservableObject {
     
     @Published var people: People = []
     @Published var person: Person?
     
-    let apiManager = APIManager()
+    private let apiManager = APIManager()
     
     func getPeople() async {
         do {
-            people = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users")
+            people = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users", method: .get)
         } catch {
             print(error.localizedDescription)
         }
@@ -24,7 +25,7 @@ class MainViewModel: ObservableObject {
     
     func getPerson(id: String) async {
         do {
-            person = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users/\(id)")
+            person = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users/\(id)", method: .get)
         } catch {
             print(error.localizedDescription)
         }

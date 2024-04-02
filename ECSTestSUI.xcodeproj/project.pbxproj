@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC231B8A2BACBE9200DC8BB1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231B892BACBE9200DC8BB1 /* MainViewModel.swift */; };
 		BC231B8C2BACBEBE00DC8BB1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231B8B2BACBEBE00DC8BB1 /* Person.swift */; };
-		BC231BC62BB344DB00DC8BB1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BC52BB344DB00DC8BB1 /* DetailView.swift */; };
+		BC231BC62BB344DB00DC8BB1 /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BC52BB344DB00DC8BB1 /* AddPersonView.swift */; };
 		BC231BD02BB34E6300DC8BB1 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BC72BB34E6300DC8BB1 /* KeychainItemAccessibility.swift */; };
 		BC231BD12BB34E6300DC8BB1 /* KeychainProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BC82BB34E6300DC8BB1 /* KeychainProperty.swift */; };
 		BC231BD22BB34E6300DC8BB1 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BC92BB34E6300DC8BB1 /* KeychainWrapper.swift */; };
@@ -17,8 +17,11 @@
 		BC231BD42BB34E6300DC8BB1 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BCC2BB34E6300DC8BB1 /* UserDefault.swift */; };
 		BC231BD52BB34E6300DC8BB1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BCD2BB34E6300DC8BB1 /* UserDefaultsKey.swift */; };
 		BC231BD82BB34F2E00DC8BB1 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BD72BB34F2E00DC8BB1 /* PersistenceManager.swift */; };
-		BC231BDA2BB34FC900DC8BB1 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BD92BB34FC900DC8BB1 /* DetailViewModel.swift */; };
+		BC231BDA2BB34FC900DC8BB1 /* AddPersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BD92BB34FC900DC8BB1 /* AddPersonViewModel.swift */; };
 		BC231BDD2BB5F8E100DC8BB1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC231BDC2BB5F8E100DC8BB1 /* APIManager.swift */; };
+		BC32A4AE2BBC81C400CA483A /* EmptyBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32A4AD2BBC81C400CA483A /* EmptyBody.swift */; };
+		BC32A4B02BBC8B5100CA483A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32A4AF2BBC8B5100CA483A /* DetailView.swift */; };
+		BC32A4B22BBC8B9D00CA483A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32A4B12BBC8B9D00CA483A /* DetailViewModel.swift */; };
 		BC90443A2BAA0F8700AAC0D2 /* ECSTestSUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9044392BAA0F8700AAC0D2 /* ECSTestSUIApp.swift */; };
 		BC90443C2BAA0F8700AAC0D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90443B2BAA0F8700AAC0D2 /* ContentView.swift */; };
 		BC90443E2BAA0F8900AAC0D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC90443D2BAA0F8900AAC0D2 /* Assets.xcassets */; };
@@ -28,7 +31,7 @@
 /* Begin PBXFileReference section */
 		BC231B892BACBE9200DC8BB1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BC231B8B2BACBEBE00DC8BB1 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		BC231BC52BB344DB00DC8BB1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		BC231BC52BB344DB00DC8BB1 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
 		BC231BC72BB34E6300DC8BB1 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		BC231BC82BB34E6300DC8BB1 /* KeychainProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainProperty.swift; sourceTree = "<group>"; };
 		BC231BC92BB34E6300DC8BB1 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -36,8 +39,11 @@
 		BC231BCC2BB34E6300DC8BB1 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		BC231BCD2BB34E6300DC8BB1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		BC231BD72BB34F2E00DC8BB1 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		BC231BD92BB34FC900DC8BB1 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		BC231BD92BB34FC900DC8BB1 /* AddPersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewModel.swift; sourceTree = "<group>"; };
 		BC231BDC2BB5F8E100DC8BB1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		BC32A4AD2BBC81C400CA483A /* EmptyBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBody.swift; sourceTree = "<group>"; };
+		BC32A4AF2BBC8B5100CA483A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		BC32A4B12BBC8B9D00CA483A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BC9044362BAA0F8700AAC0D2 /* ECSTestSUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECSTestSUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC9044392BAA0F8700AAC0D2 /* ECSTestSUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECSTestSUIApp.swift; sourceTree = "<group>"; };
 		BC90443B2BAA0F8700AAC0D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				BC231B8B2BACBEBE00DC8BB1 /* Person.swift */,
+				BC32A4AD2BBC81C400CA483A /* EmptyBody.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -68,7 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				BC90443B2BAA0F8700AAC0D2 /* ContentView.swift */,
-				BC231BC52BB344DB00DC8BB1 /* DetailView.swift */,
+				BC231BC52BB344DB00DC8BB1 /* AddPersonView.swift */,
+				BC32A4AF2BBC8B5100CA483A /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -77,7 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				BC231B892BACBE9200DC8BB1 /* MainViewModel.swift */,
-				BC231BD92BB34FC900DC8BB1 /* DetailViewModel.swift */,
+				BC231BD92BB34FC900DC8BB1 /* AddPersonViewModel.swift */,
+				BC32A4B12BBC8B9D00CA483A /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -237,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC32A4B22BBC8B9D00CA483A /* DetailViewModel.swift in Sources */,
 				BC90443C2BAA0F8700AAC0D2 /* ContentView.swift in Sources */,
 				BC231BD12BB34E6300DC8BB1 /* KeychainProperty.swift in Sources */,
 				BC231BD42BB34E6300DC8BB1 /* UserDefault.swift in Sources */,
@@ -245,10 +255,12 @@
 				BC231B8C2BACBEBE00DC8BB1 /* Person.swift in Sources */,
 				BC231BDD2BB5F8E100DC8BB1 /* APIManager.swift in Sources */,
 				BC231BD32BB34E6300DC8BB1 /* AppUserDefaults.swift in Sources */,
-				BC231BC62BB344DB00DC8BB1 /* DetailView.swift in Sources */,
+				BC231BC62BB344DB00DC8BB1 /* AddPersonView.swift in Sources */,
+				BC32A4B02BBC8B5100CA483A /* DetailView.swift in Sources */,
 				BC231BD22BB34E6300DC8BB1 /* KeychainWrapper.swift in Sources */,
-				BC231BDA2BB34FC900DC8BB1 /* DetailViewModel.swift in Sources */,
+				BC231BDA2BB34FC900DC8BB1 /* AddPersonViewModel.swift in Sources */,
 				BC231B8A2BACBE9200DC8BB1 /* MainViewModel.swift in Sources */,
+				BC32A4AE2BBC81C400CA483A /* EmptyBody.swift in Sources */,
 				BC231BD02BB34E6300DC8BB1 /* KeychainItemAccessibility.swift in Sources */,
 				BC231BD52BB34E6300DC8BB1 /* UserDefaultsKey.swift in Sources */,
 			);
