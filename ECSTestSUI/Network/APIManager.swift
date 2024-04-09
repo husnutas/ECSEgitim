@@ -9,7 +9,11 @@ import Foundation
 
 final class APIManager {
     
-    func fetchData<T: Codable, B: Codable>(urlString: String, method: HttpMethod, body: B = EmptyBody(), path: String? = nil) async throws -> T {
+    private let serviceProvider = ServiceProvider()
+    
+    func fetchData<T: Codable, B: Codable>(endpoint: Endpoint, method: HttpMethod, body: B = EmptyBody(), path: String? = nil) async throws -> T {
+        let urlString = serviceProvider.getFullUrl(endpoint: endpoint)
+        
         var url = URL(string: urlString)
         
         if let path {
@@ -37,22 +41,4 @@ final class APIManager {
         }
     }
     
-}
-
-enum CustomError: Error {
-    case invalidUrl
-    
-    var description: String {
-        switch self {
-        case .invalidUrl:
-            "Invalid URL!"
-        }
-    }
-}
-
-enum HttpMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
 }

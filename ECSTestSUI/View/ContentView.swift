@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = MainViewModel()
+    @StateObject private var viewModel = MainViewModel(service: MainService())
     @State private var searchText = ""
     private let persistenceManager = PersistenceManager.shared
     

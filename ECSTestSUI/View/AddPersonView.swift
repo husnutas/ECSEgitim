@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddPersonView: View {
-    @StateObject private var viewModel = AddPersonViewModel()
+    @StateObject private var viewModel = AddPersonViewModel(service: AddPersonService())
     
     @State private var name = ""
     @State private var bio = ""

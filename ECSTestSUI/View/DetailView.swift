@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @StateObject private var viewModel = DetailViewModel()
+    @StateObject private var viewModel = DetailViewModel(service: DetailService())
     let personId: String
     
     var body: some View {

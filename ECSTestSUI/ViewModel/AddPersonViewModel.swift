@@ -7,24 +7,25 @@
 
 import Foundation
 
-@MainActor
-final class AddPersonViewModel: ObservableObject {
+final class AddPersonViewModel: BaseViewModel<AddPersonService> {
     
     private let persistenceManager = PersistenceManager.shared
-    private let apiManager = APIManager()
     
     var person: Person?
     
-    func saveToDevice(value: String, key: KeychainProperty) {
-        persistenceManager.saveToKeychain(value: value, key: key)
-    }
-    
+    // MARK: - Service Calls
     func addPerson(_ person: Person) async {
         do {
-            self.person = try await apiManager.fetchData(urlString: "https://userlistapi.netlify.app/api/users", method: .post, body: person)
+            self.person = try await service.addPerson(person)
         } catch {
             print(error.localizedDescription)
         }
     }
     
+}
+
+extension AddPersonViewModel {
+    func saveToDevice(value: String, key: KeychainProperty) {
+        persistenceManager.saveToKeychain(value: value, key: key)
+    }
 }
